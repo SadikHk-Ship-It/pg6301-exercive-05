@@ -1,4 +1,18 @@
 import { createRoot } from "react-dom/client";
-import React from "react";
+import React, { useState } from "react";
 
-createRoot(document.getElementById("app")).render(<h1>hello react</h1>);
+function Application() {
+  const [tasks, setTask] = useState([
+    { description: "something" },
+    { description: "something else" },
+  ]);
+  return (
+    <ul>
+      {tasks.map((t) => (
+        <li>{t.description}</li>
+      ))}
+    </ul>
+  );
+}
+
+createRoot(document.getElementById("app")).render(<Application />);
